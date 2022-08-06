@@ -174,3 +174,19 @@ div.components div.parts-middle:hover {
   cursor: pointer;
   opacity: .8;
 }
+
+
+      @media (max-width: 767px) {
+        div.board, section{
+          display: none;
+        }
+        div.mobilelock{
+          display: block;
+        }
+      }
+
+      @media (min-width: 768px) {
+        div.mobilelock{
+          display: none;
+        }
+      }
