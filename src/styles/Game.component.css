@@ -1,0 +1,54 @@
+div.board {
+  display: grid;
+  grid-template-columns: repeat(9, 4.73em);
+  justify-content: center;
+}
+
+div.loading {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+div.board input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 3em;
+  height: 3em;
+  text-align: center;
+  line-height: normal;
+  font-size: 1.5em;
+  font-family: "KyoboHand";
+  border: .075em solid #444;
+  outline: none;
+  opacity: .6;
+}
+
+div.board input:focus {
+  opacity: 1;
+}
+
+div.board input.wrong {
+  background: #e9bcbc;
+}
+
+div.board input.row0 {
+  border-top: .15em solid #444;
+}
+
+div.board input.row2,
+div.board input.row5,
+div.board input.row8 {
+  border-bottom: .15em solid #444;
+}
+
+div.board input.col0 {
+  border-left: .15em solid #444;
+}
+
+div.board input.col2,
+div.board input.col5,
+div.board input.col8 {
+  z-index: 2;
+  border-right: .15em solid #444;
+}
