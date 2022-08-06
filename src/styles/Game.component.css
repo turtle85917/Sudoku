@@ -52,3 +52,10 @@ div.board input.col8 {
   z-index: 2;
   border-right: .15em solid #444;
 }
+
+.hint,
+.answer,
+.regame,
+.pass{
+  font-family: "KyoboHand";
+}
