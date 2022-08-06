@@ -11,7 +11,8 @@ function App() {
   return (
     <>
       <div className='mobilelock'>
-      모바일에서는 플레이 할 수 없어요
+저런...<br />      
+모바일에서는 플레이 할 수 없어요
       </div>
       <Game />
       <footer>
