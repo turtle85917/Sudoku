@@ -15,6 +15,8 @@ function App() {
         소스 코드 : <a className="desc" target={"_blank"} href="https://github.com/turtle85917/Sudoku">여기!</a>
         <br />
         제작자 : <a className="desc" target={"_blank"} href="https://github.com/turtle85917">플토</a>
+        <br />
+        타임어택 모드는 "<a className="level-hard">어려움</a>"입니다.
       </footer>
     </>
   )
