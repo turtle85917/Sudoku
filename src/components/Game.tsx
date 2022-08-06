@@ -3,7 +3,7 @@ import { Component } from "react";
 import axios from "axios";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLightbulb, faQuestion, faClock, faGraduationCap, faShareFromSquare, faArrowRotateRight, faFaceSadCry, faShieldHalved, faBan, faToggleOn, faBarsStaggered } from "@fortawesome/free-solid-svg-icons";
+import { faLightbulb, faQuestion, faClock, faGraduationCap, faArrowRotateRight, faFaceSadCry, faShieldHalved, faBan, faToggleOn, faBarsStaggered } from "@fortawesome/free-solid-svg-icons";
 
 import "../styles/Game.component.css";
 
@@ -145,7 +145,7 @@ export default class Game extends Component<{}, S> {
     this.setState({
       board: ((await axios.get(`https://sugoku.herokuapp.com/board?difficulty=${timeattack ? "hard" : GameMode}`)).data as sugokuBoard).board,
       gameStart: true, tryCount: 0, overReason: "none",
-      hint: timeattack ? 1 : 5, hintCooldown: 0, time: { m: timeattack ? 5 : 0, s: 0 }, 
+      hint: timeattack ? 2 : 5, hintCooldown: 0, time: { m: timeattack ? 6 : 0, s: 0 }, 
       fireworksEffect: true, timeattack
     }, async () => {
       const params = new URLSearchParams();
@@ -285,7 +285,7 @@ export default class Game extends Component<{}, S> {
                       : (<>
                         {this.state?.time.m.toString().padStart(2, "0")}분&nbsp;
                         {this.state?.time.s.toString().padStart(2, "0")}
-                        {this.state?.overReason === "givingUp" ? "초 푸시다가 포기하셨어요." : "초만의 깨셨어요."}
+                        {this.state?.overReason === "givingUp" ? "초 동안 푸시다가 포기하셨어요." : "초만의 깨셨어요."}
                       </>)}
                       
                     </span>
@@ -409,12 +409,22 @@ export default class Game extends Component<{}, S> {
 
                     const result: sugokuSolve = (await axios.post("https://sugoku.herokuapp.com/solve", params)).data;
 
-                    const selectY: number = checkBoard.filter((cells, y) => cells.filter((cell, x) => cell === 0 && !checkBoard[y][x]).length).randomIdx();
-                    const selectX: number = checkBoard[selectY].filter((cell, x) => cell === 0 && !checkBoard[selectY][x]).randomIdx();
+                    let getHint: boolean = true;
+                    let select = { x: 0, y: 0 };
+                    
+                    while (getHint) {
+                      const y = Math.floor(Math.random() * 9);
+                      const x = Math.floor(Math.random() * 9);
 
-                    const inputElement: HTMLInputElement = document.querySelector(`div.board > input.row${selectY}.col${selectX}`) as HTMLInputElement;
+                      if (!checkBoard[y][x] && !this.state?.board[y][x]) {
+                        select = { x, y };
+                        getHint = false;
+                      }
+                    }
+
+                    const inputElement: HTMLInputElement = document.querySelector(`div.board > input.row${select.y}.col${select.x}`) as HTMLInputElement;
                     if (inputElement) {
-                      inputElement.value = result.solution[selectY][selectX].toString();
+                      inputElement.value = result.solution[select.y][select.x].toString();
                       inputElement.style.opacity = ".8";
                       inputElement.style.fontWeight = "bold";
                       inputElement.style.background = "rgba(236, 239, 7, .4)";
