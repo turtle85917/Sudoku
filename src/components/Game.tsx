@@ -335,7 +335,7 @@ export default class Game extends Component<{}, S> {
                     ? (<div
                       className="parts-middle"
                       onClick={() => {
-                        window.location.href = "/";
+                        window.location.href = `/${this.state?.timeattack ? "timeattack" : ""}`;
                       }} >
                       <FontAwesomeIcon icon={faArrowRotateRight} className="icon" />
                       재시작
