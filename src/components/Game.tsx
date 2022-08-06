@@ -276,18 +276,8 @@ export default class Game extends Component<{}, S> {
                   </div>
                   <div className="desc line-3">
                     <span className="timer">
-                      {this.state?.timeattack
-                      ? (<>
-                        {(4 - (this.state?.time.m || 4)).toString().padStart(2, "0")}분&nbsp;
-                        {(60 - (this.state?.time.s || 60)).toString().padStart(2, "0")}
-                        초 동안 푸셨어요!
-                      </>)
-                      : (<>
-                        {this.state?.time.m.toString().padStart(2, "0")}분&nbsp;
-                        {this.state?.time.s.toString().padStart(2, "0")}
-                        {this.state?.overReason === "givingUp" ? "초 동안 푸시다가 포기하셨어요." : "초만의 깨셨어요."}
-                      </>)}
-                      
+                      {this.state?.time.m}분&nbsp;
+                      {this.state?.time.s}초 정도 지났어요.
                     </span>
                   </div>
                   <div className="desc line-4">
@@ -501,7 +491,7 @@ export default class Game extends Component<{}, S> {
                   : (<button
                     className="regame"
                     onClick={() => {
-                      window.location.href = ["/", this.state?.timeattack ? "timeattack" : ""].join(" ").trim();
+                      window.location.href = ["/", this.state?.timeattack ? "timeattack" : ""].join("").trim();
                     }} >
                     <FontAwesomeIcon icon={faArrowRotateRight} className="icon" />
                     다시 하기
