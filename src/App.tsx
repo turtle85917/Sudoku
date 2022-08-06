@@ -1,6 +1,7 @@
 import Game from "./components/Game";
 
 import "./styles/App.css";
+import "./styles/footer.css";
 
 function App() {
   const GameMode = localStorage.getItem("mode");
@@ -10,6 +11,11 @@ function App() {
   return (
     <>
       <Game />
+      <footer>
+        소스 코드 : <a className="desc" target={"_blank"} href="https://github.com/turtle85917/Sudoku">여기!</a>
+        <br />
+        제작자 : <a className="desc" target={"_blank"} href="https://github.com/turtle85917">플토</a>
+      </footer>
     </>
   )
 }

@@ -1,0 +1,25 @@
+footer {
+  font-family: TmoneyRoundWindRegular;
+  text-align: center;
+  margin-top: 1em;
+  border: .1em solid #a4a4a4;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-left: 0;
+  border-right: 0;
+  opacity: .5;
+  background-color: rgba(223, 223, 223, .5);
+  line-height: 1.8em;
+}
+
+footer a.desc {
+  color: #5fa5e7;
+  font-weight: bold;
+}
+
+footer a.desc:hover {
+  color: #1c82e0;
+  opacity: 1;
+}
