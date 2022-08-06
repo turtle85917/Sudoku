@@ -45,16 +45,19 @@ div.components section .icon {
 div.components button.hint {
   border: .3em solid #c6c79e;
   background: #8d8d6f;
+  font-family: TmoneyRoundWindRegular;
 }
 
 div.components button.answer {
   border: .3em solid #9ec79e;
   background: #628d62;
+  font-family: TmoneyRoundWindRegular;
 }
 
 div.components button.regame {
   border: .3em solid #646464;
   background: #252525;
+  font-family: TmoneyRoundWindRegular;
 }
 
 div.components button.pass {
@@ -62,6 +65,7 @@ div.components button.pass {
   background: #252525;
   margin-top: .5em;
   opacity: .2;
+  font-family: TmoneyRoundWindRegular;
 }
 
 div.components button.pass:hover {

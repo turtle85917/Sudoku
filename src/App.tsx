@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Game from "./components/Game";
 
 import "./styles/App.css";
@@ -10,6 +11,10 @@ function App() {
 
   return (
     <>
+      <div className="mobile">
+        <div className="sorry">죄송합니다.</div>
+        모바일에서는 플레이 할 수 없어요.
+      </div>
       <Game />
       <footer>
         소스 코드 : <a className="desc" target={"_blank"} href="https://github.com/turtle85917/Sudoku">여기!</a>
