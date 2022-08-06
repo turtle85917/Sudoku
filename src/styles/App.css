@@ -176,12 +176,30 @@ div.components div.parts-middle:hover {
 }
 
 
+div.mobilelock{
+  font-family: 'KyoboHand';
+  font-weight: 500;
+  text-align: center;
+  padding-top: .2em;
+
+  font-size: 1.2em;
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+
+
       @media (max-width: 767px) {
         div.board, section{
           display: none;
         }
         div.mobilelock{
           display: block;
+        }
+        .mode{
+          display: none;
         }
       }
 
